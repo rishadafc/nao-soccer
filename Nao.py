@@ -1,11 +1,12 @@
 from naoqi import ALProxy
+from Tkinter import *
 
 class Nao:
     def __init__(self):
 
         # Nao configuration
 
-        IP = "192.168.1.108"
+        IP = "169.254.16.208"
         self.motion = ALProxy("ALMotion", IP, 9559)
         self.posture = ALProxy("ALRobotPosture", IP, 9559)
         self.tts = ALProxy("ALTextToSpeech", IP, 9559)
@@ -121,7 +122,7 @@ class Nao:
 
         try:
           # uncomment the following line and modify the IP if you use this script outside Choregraphe.
-          # motion = ALProxy("ALMotion", IP, 9559)
+          #motion = ALProxy("ALMotion", IP, 9559)
           motion = ALProxy("ALMotion")
           motion.angleInterpolation(names, keys, times, True);
         except BaseException, err:
@@ -280,7 +281,7 @@ class Nao:
 
         try:
           # uncomment the following line and modify the IP if you use this script outside Choregraphe.
-          # motion = ALProxy("ALMotion", IP, 9559)
+          #motion = ALProxy("ALMotion", IP, 9559)
           motion = ALProxy("ALMotion")
           motion.angleInterpolation(names, keys, times, True);
         except BaseException, err:
@@ -399,7 +400,7 @@ class Nao:
 
         try:
           # uncomment the following line and modify the IP if you use this script outside Choregraphe.
-          # motion = ALProxy("ALMotion", IP, 9559)
+          motion = ALProxy("ALMotion", IP, 9559)
           motion = ALProxy("ALMotion")
           motion.angleInterpolation(names, keys, times, True);
         except BaseException, err:
@@ -408,8 +409,8 @@ class Nao:
         pass
 
 
-class GUIMenu:
-    def __init__(self):
+class GUIMenu(Frame):
+    def __init__(self, parent):
         
         self.nao = Nao()
 
@@ -422,8 +423,6 @@ class GUIMenu:
     def initUI(self):
       
         self.parent.title("NaoSoccer")
-        self.style = Style()
-        self.style.theme_use("default")
 
         self.pack(fill=BOTH, expand=1)
 
@@ -461,18 +460,18 @@ class GUIMenu:
         turnRightButton = Button(self, text="Turn Right", command=self.nao.turnRight)
         turnRightButton.place(x=180, y=180)
 
-        # Stop button
+        # Stop and Quit buttons
 
         stopButton = Button(self, text="Stop", command=self.nao.standUp)
-        stopButton.place(x=115, y=220)
+        stopButton.place(x=100, y=220)
 
-        # quitButton = Button(self, text="Quit", command=self.quit)
-        # quitButton.place(x=50, y=50)
+        quitButton = Button(self, text="Quit", command=self.quit)
+        quitButton.place(x=160, y=220)
 
 def main():
   
     root = Tk()
-    root.geometry("320x240+300+300")
+    root.geometry("320x280+300+300")
     app = GUIMenu(root)
     root.mainloop()  
 

@@ -6,8 +6,9 @@ class RR(object):
     def __init__(self):
         self.nao = Nao()
         #IP = "elmer.local"
-        IP = "192.168.1.108"
-        self.TCP_IP = '192.168.1.101'
+        IP = "169.254.16.208"
+        
+        self.TCP_IP = '127.0.0.1'
         self.TCP_PORT = 5005
         self.BUFFER_SIZE = 20  # Normally 1024, but we want fast response
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
