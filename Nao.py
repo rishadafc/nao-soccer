@@ -44,9 +44,9 @@ class Nao:
         times.append([ 0.60000, 0.76000, 0.92000, 1.40000, 1.72000, 2.04000, 2.80000, 3.00000, 3.60000, 4.40000])
         keys.append([ -0.54461, -0.71182, -0.73636, -0.81766, -0.29764, -0.16265, -0.86982, -1.01402, -0.92044, -0.36513])
 
-        names.append("LHand")
-        times.append([ 0.60000, 0.76000, 0.92000])
-        keys.append([ 0.00032, 0.00116, 0.00126])
+        # names.append("LHand")
+        # times.append([ 0.60000, 0.76000, 0.92000])
+        # keys.append([ 0.00032, 0.00116, 0.00126])
 
         names.append("LHipPitch")
         times.append([ 0.60000, 0.76000, 0.92000, 1.40000, 2.04000, 2.24000, 2.80000, 3.00000, 3.60000, 4.00000, 4.40000])
@@ -72,9 +72,9 @@ class Nao:
         times.append([ 0.60000, 0.68000, 0.76000, 0.92000, 1.40000, 1.72000, 2.04000, 2.80000, 3.00000, 3.60000, 4.40000])
         keys.append([ 0.24386, 0.49393, 0.41567, 0.50964, 0.75398, 0.61087, 0.51078, 0.07666, 0.15489, 0.68872, 0.59208])
 
-        names.append("LWristYaw")
-        times.append([ 0.60000, 0.76000, 0.92000])
-        keys.append([ -0.74250, -0.77164, -0.73636])
+        # names.append("LWristYaw")
+        # times.append([ 0.60000, 0.76000, 0.92000])
+        # keys.append([ -0.74250, -0.77164, -0.73636])
 
         names.append("RAnklePitch")
         times.append([ 0.60000, 0.76000, 0.92000, 1.16000, 1.40000, 1.72000, 2.04000, 2.24000, 2.36000, 2.48000, 2.80000, 3.00000, 3.20000, 3.60000, 4.00000, 4.40000])
@@ -92,9 +92,9 @@ class Nao:
         times.append([ 0.60000, 0.76000, 0.92000, 1.40000, 2.04000, 2.36000, 2.80000, 3.00000, 3.60000, 4.40000])
         keys.append([ 0.48010, 1.82235, 2.05399, -0.08727, -0.08134, -0.07674, -0.06600, 0.31596, 1.67969, 0.96638])
 
-        names.append("RHand")
-        times.append([ 0.60000, 0.76000, 0.92000])
-        keys.append([ 0.00032, 0.00221, 0.00244])
+        # names.append("RHand")
+        # times.append([ 0.60000, 0.76000, 0.92000])
+        # keys.append([ 0.00032, 0.00221, 0.00244])
 
         names.append("RHipPitch")
         times.append([ 0.60000, 0.76000, 0.92000, 1.40000, 2.04000, 2.24000, 2.80000, 3.60000, 4.00000, 4.40000])
@@ -116,15 +116,15 @@ class Nao:
         times.append([ 0.60000, 0.76000, 0.92000, 1.16000, 1.40000, 2.04000, 2.36000, 2.80000, 3.00000, 3.60000, 4.40000])
         keys.append([ -0.35133, -0.67500, -0.63819, -0.82729, -0.00873, -0.50933, -0.55382, -0.56455, -0.66580, -0.57683, -0.26236])
 
-        names.append("RWristYaw")
-        times.append([ 0.60000, 0.76000, 0.92000])
-        keys.append([ 1.07529, 1.09523, 1.08756])
+        # names.append("RWristYaw")
+        # times.append([ 0.60000, 0.76000, 0.92000])
+        # keys.append([ 1.07529, 1.09523, 1.08756])
 
         try:
           # uncomment the following line and modify the IP if you use this script outside Choregraphe.
           #motion = ALProxy("ALMotion", IP, 9559)
-          motion = ALProxy("ALMotion")
-          motion.angleInterpolation(names, keys, times, True);
+          #motion = ALProxy("ALMotion")
+          self.motion.angleInterpolation(names, keys, times, False);
         except BaseException, err:
           print err
 
@@ -171,8 +171,6 @@ class Nao:
         pass
 
     def leftKick(self):
-        print "Left Kick"
-
         # Choregraphe simplified export in Python.
         
         names = list()
@@ -281,9 +279,9 @@ class Nao:
 
         try:
           # uncomment the following line and modify the IP if you use this script outside Choregraphe.
-          #motion = ALProxy("ALMotion", IP, 9559)
-          motion = ALProxy("ALMotion")
-          motion.angleInterpolation(names, keys, times, True);
+          # motion = ALProxy("ALMotion", IP, 9559)
+          #motion = ALProxy("ALMotion")
+          self.motion.angleInterpolation(names, keys, times, False);
         except BaseException, err:
           print err
 
@@ -400,9 +398,9 @@ class Nao:
 
         try:
           # uncomment the following line and modify the IP if you use this script outside Choregraphe.
-          motion = ALProxy("ALMotion", IP, 9559)
-          motion = ALProxy("ALMotion")
-          motion.angleInterpolation(names, keys, times, True);
+          # motion = ALProxy("ALMotion", IP, 9559)
+          #motion = ALProxy("ALMotion")
+          self.motion.angleInterpolation(names, keys, times, False);
         except BaseException, err:
           print err
 
