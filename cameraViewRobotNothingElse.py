@@ -19,6 +19,9 @@ while True:
     # Space key to switch to bottom camera    
     elif cv.Waitkey(10) == 32:
      camProxy.setParam(18, 1)
+    # Tab key to switch to top camera    
+    elif cv.Waitkey(10) == 9:
+     camProxy.setParam(18, 0)
 camProxy.unsubscribe(videoClient)    
 cv.DestroyWindow("robot")
 cv.DestroyWindow("ball")
